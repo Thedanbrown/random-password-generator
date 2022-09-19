@@ -13,7 +13,7 @@ Usage:
 
 once deployed, the webpage can be viewed and utilized in a traditional browser.
 
-![alt text](./assets/images/Password%20Generator.png)
+![alt text](./assets/images/Password-Generator.png)
 
 License:
 
