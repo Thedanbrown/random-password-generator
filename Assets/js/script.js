@@ -1,6 +1,6 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
 
+var generateBtn = document.querySelector("#generate");
+// This Func makes the y/n input lowercase to keep consistency in the code
 function askYN (title) {
   let result = '';
   while (result != 'y' && result != 'n') {
@@ -8,14 +8,14 @@ function askYN (title) {
   }
   return result;
 }
-
+// This contains the strings of allowable content for the generated password
 const keys = {
   upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   lowerCase: "abcdefghijklmnopqrstuvwxyz",
   number: "0123456789",
   symbol: "!@#$%^&*()_+~\\`|}{[]:;?><,./-="
 }
-
+// this function generates the pass word based on user input criteria
 function generatePassword () {
   let charLength = 0;
   while (charLength < 8 || charLength > 128 || Number.isNaN(charLength)) {
@@ -29,6 +29,7 @@ function generatePassword () {
   let specialChar = '';
 
   let atLeastOneCharType = false;
+  //this function will make sure to prompt them to say yes to at least one parameter before a password will be generated
   while (!atLeastOneCharType) {
     lowercase = askYN("Lowercase: Y/N");
     if (lowercase === 'y') {
@@ -56,7 +57,7 @@ function generatePassword () {
   }
 
   var values = [];
-
+//these if statements will build an array from the chosen variables if y is chosen as a parameter
   if (lowercase === "y") {
     values = values.concat(keys.lowerCase.split(''))
   }
@@ -74,7 +75,7 @@ function generatePassword () {
   }
 
   var password = "";
-
+//this for statement will generate the password as a string based on variables added to the values array and chosen length
   for (i = 0; i < charLength; i++) {
     let index = Math.floor(Math.random() * (values.length - 1));
     password = password.concat(values[index]);
@@ -90,5 +91,5 @@ function writePassword() {
 
   passwordText.value = password;
 }
-// Add event listener to generate button
+// this event listener will generate the password when the generate button is clicked
 generateBtn.addEventListener("click", writePassword);
