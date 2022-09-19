@@ -19,7 +19,7 @@ const keys = {
 function generatePassword () {
   let charLength = 0;
   while (charLength < 8 || charLength > 128 || Number.isNaN(charLength)) {
-    charLength = parseInt(prompt("8 to 128 characters"));
+    charLength = parseInt(prompt("Please choose between 8 to 128 characters for password length"));
     console.log(charLength);
   }
   
@@ -52,7 +52,7 @@ function generatePassword () {
     }
     console.log(specialChar);
     if (atLeastOneCharType === false) {
-      alert("Please Enter y for one parameter!")
+      alert("Please Enter y for at least one parameter!")
     }
   }
 
